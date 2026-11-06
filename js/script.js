@@ -252,18 +252,6 @@ async function getSpaceImages() {
 			return;
 		}
 
-		const uniqueEntries = new Set(entries.map((entry) => JSON.stringify([
-			entry.title,
-			entry.url,
-			entry.explanation
-		])));
-
-		if (uniqueEntries.size === 1) {
-			console.error('NASA APOD returned identical content for all nine dates:', entries);
-			showMessage('NASA returned the same placeholder content for every date, not daily APOD photos. Please try again later.', 'error');
-			return;
-		}
-
 		entries.sort((firstEntry, secondEntry) => firstEntry.date.localeCompare(secondEntry.date));
 		console.info('NASA APOD entries received:', entries.length, returnedDates);
 		renderApodEntries(entries);

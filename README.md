@@ -7,7 +7,7 @@ You'll get to use your skills to build something that's actually connected to re
 
 ## Run locally
 
-The app uses a small Node.js server to keep the NASA API key out of browser code. Use Node.js 20 or newer.
+The app uses a small Node.js server to keep the NASA API key out of browser code. Use Node.js 20.6 or newer.
 
 1. Copy `.env.example` to `.env` and add your NASA API key to the `NASA_API_KEY` value. The `.env` file is ignored by Git and must not be committed.
 

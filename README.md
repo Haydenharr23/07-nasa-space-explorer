@@ -7,20 +7,16 @@ You'll get to use your skills to build something that's actually connected to re
 
 ## Run locally
 
-The app uses a small Node.js server to keep the NASA API key out of browser code. Use Node.js 18 or newer.
+The app uses a small Node.js server to keep the NASA API key out of browser code. Use Node.js 20 or newer.
 
-1. In a terminal, set your NASA API key as an environment variable:
+1. Copy `.env.example` to `.env` and add your NASA API key to the `NASA_API_KEY` value. The `.env` file is ignored by Git and must not be committed.
 
-   ```sh
-   export NASA_API_KEY="your-nasa-api-key"
-   ```
-
-2. Start the app:
+2. Start the app, loading the key from `.env`:
 
    ```sh
-   node server.js
+   node --env-file=.env server.js
    ```
 
 3. Open [http://localhost:8000](http://localhost:8000).
 
-The API key is only used by the local server and should never be added to a source file or committed to GitHub.
+The API key is only used by the local server and should never be added to a browser file or committed to GitHub. Static hosting such as GitHub Pages cannot run the server-side API proxy; deploy this project to a Node.js host and configure `NASA_API_KEY` as a private environment variable there.

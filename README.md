@@ -5,7 +5,22 @@ Your task is to build an interactive web app that fetches and displays these pho
 
 You'll get to use your skills to build something that's actually connected to real-world data from one of the most iconic organizations in the world.
 
-## Starter Files
-- The provided files include a NASA logo, date inputs, a button, a placeholder for your gallery, and basic layout and styling to help you get started.
-- It also includes built-in logic (in `dateRange.js`) to handle the valid APOD date range—from June 16, 1995 to today. No need to modify it.
-- All your custom JavaScript should go in `script.js`. That's where you'll write the code that fetches data and displays your gallery.
+## Run locally
+
+The app uses a small Node.js server to keep the NASA API key out of browser code. Use Node.js 18 or newer.
+
+1. In a terminal, set your NASA API key as an environment variable:
+
+   ```sh
+   export NASA_API_KEY="your-nasa-api-key"
+   ```
+
+2. Start the app:
+
+   ```sh
+   node server.js
+   ```
+
+3. Open [http://localhost:8000](http://localhost:8000).
+
+The API key is only used by the local server and should never be added to a source file or committed to GitHub.

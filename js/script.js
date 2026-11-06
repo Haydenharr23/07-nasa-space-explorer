@@ -1,7 +1,6 @@
 // Find our date picker inputs on the page
 const startInput = document.getElementById('startDate');
 const endInput = document.getElementById('endDate');
-const apiKeyInput = document.getElementById('apiKey');
 
 // Call the setupDateInputs function from dateRange.js
 // This sets up the date pickers to:
@@ -184,12 +183,6 @@ function renderApodEntries(entries) {
 async function getSpaceImages() {
 	const startDate = startInput.value;
 	const endDate = endInput.value;
-	const apiKey = apiKeyInput.value.trim();
-
-	if (!apiKey) {
-		showMessage('Enter your NASA API key to load space photos.', 'error');
-		return;
-	}
 
 	if (!startDate || !endDate) {
 		showMessage('Select both a start date and an end date.');
@@ -210,11 +203,9 @@ async function getSpaceImages() {
 
 	const queryParameters = new URLSearchParams({
 		start_date: startDate,
-		end_date: endDate,
-		thumbs: 'true',
-		api_key: apiKey
+		end_date: endDate
 	});
-	const requestUrl = `https://api.nasa.gov/planetary/apod?${queryParameters}`;
+	const requestUrl = `/api/apod?${queryParameters}`;
 
 	console.info('Requesting NASA APOD entries:', { startDate, endDate });
 	getImagesButton.disabled = true;
